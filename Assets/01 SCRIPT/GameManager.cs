@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] List<GameObject> _player = new List<GameObject>();
+    public List<GameObject> Player => _player;
     [SerializeField] int _playerSelect;
     public int PlayerSelect => _playerSelect;
     void Start()
@@ -27,7 +28,8 @@ public class GameManager : Singleton<GameManager>
                 {
                     nextPlayerIndex = 0;
                 }
-            } while (_player[nextPlayerIndex].GetComponent<DEAD>()._isDead == true && nextPlayerIndex != _playerSelect);
+            } while (_player[nextPlayerIndex].GetComponent<DEAD>()._isDead == true
+            && nextPlayerIndex != _playerSelect);
 
             if (_player[nextPlayerIndex].GetComponent<DEAD>()._isDead == false)
             {

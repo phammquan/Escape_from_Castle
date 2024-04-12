@@ -5,7 +5,7 @@ using UnityEngine;
 public class DEAD : MonoBehaviour
 {
     public bool _isDead = false;
-    Rigidbody2D _rigi;
+    public Rigidbody2D _rigi;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class DEAD : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Bullet")
+        if (other.gameObject.tag == "Arrow" || other.gameObject.tag == "Magic" || other.gameObject.tag == "Sword")
         {
             this.GetComponent<BoxCollider2D>().enabled = false;
             _isDead = true;

@@ -13,9 +13,7 @@ public class attackmove : MonoBehaviour
     void Start()
     {
         _rigi = GetComponent<Rigidbody2D>();
-
     }
-
     void Update()
     {
         move();
