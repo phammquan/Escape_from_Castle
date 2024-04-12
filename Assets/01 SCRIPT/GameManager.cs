@@ -5,22 +5,35 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] List<GameObject> _player = new List<GameObject>();
-    [SerializeField] int _playerSelect = 0;
+    [SerializeField] int _playerSelect;
     public int PlayerSelect => _playerSelect;
+    void Start()
+    {
+        _playerSelect = _player.IndexOf(_player[0]);
+    }
     void Update()
     {
         ChangePlayer();
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (_playerSelect < _player.Count - 1)
+            int nextPlayerIndex = _playerSelect;
+            do
             {
-                _playerSelect++;
-            }
-            else
+                if (nextPlayerIndex < _player.Count - 1)
+                {
+                    nextPlayerIndex++;
+                }
+                else
+                {
+                    nextPlayerIndex = 0;
+                }
+            } while (_player[nextPlayerIndex].GetComponent<DEAD>()._isDead == true && nextPlayerIndex != _playerSelect);
+
+            if (_player[nextPlayerIndex].GetComponent<DEAD>()._isDead == false)
             {
-                _playerSelect = 0;
+                _playerSelect = nextPlayerIndex;
+                ChangePlayer();
             }
-            ChangePlayer();
         }
 
     }
