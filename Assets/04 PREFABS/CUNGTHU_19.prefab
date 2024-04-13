@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3446687435844065434}
   - component: {fileID: 6443072471322382675}
   - component: {fileID: 8323736329954280317}
-  - component: {fileID: -4272258504877431825}
+  - component: {fileID: 2267756947862143337}
   m_Layer: 7
   m_Name: CUNGTHU_19
   m_TagString: Arrow
@@ -126,9 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c500aaa9e45f07e438159ab52a2455a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
---- !u!61 &-4272258504877431825
-BoxCollider2D:
+  _speed: 20
+  arrow_hit: {fileID: -775131616, guid: 5987ad26bfeb27143a015c206ec1cf49, type: 3}
+--- !u!68 &2267756947862143337
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,15 +161,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.75, y: 2.375}
-    newSize: {x: 3.75, y: 2.375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.75, y: 2.375}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.92825675, y: -0.91349906}
+  - {x: 0.9196614, y: 0.6415411}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

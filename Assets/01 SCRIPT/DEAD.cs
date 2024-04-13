@@ -6,6 +6,7 @@ public class DEAD : MonoBehaviour
 {
     public bool _isDead = false;
     public Rigidbody2D _rigi;
+    [SerializeField] Sprite arrow_hit;
 
     void Start()
     {
