@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class CB_ATTACK : Singleton<CB_ATTACK>
 {
-    Collider2D _colli;
     Vector2 _force;
     public Vector2 Force => _force;
-    float zRotation;
     private void OnEnable()
     {
         StartCoroutine(WaitAttack());
@@ -16,9 +14,7 @@ public class CB_ATTACK : Singleton<CB_ATTACK>
 
     void Start()
     {
-
         Add_Force();
-        _colli = this.GetComponent<Collider2D>();
 
     }
     void Update()
@@ -29,7 +25,7 @@ public class CB_ATTACK : Singleton<CB_ATTACK>
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<DEAD>()._rigi.AddForce(_force);
+            other.gameObject.GetComponent<DEAD>()._Rigi.AddForce(_force);
             Debug.LogError("Hit");
             this.gameObject.SetActive(false);
         }

@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         ChangePlayer();
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && _player[_playerSelect].GetComponent<PlayerController>().IsGrounded)
         {
             int nextPlayerIndex = _playerSelect;
             do

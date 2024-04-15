@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a48d8b3944fb144b76d33fec58f8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 600
+  _speed: 1000
   checkSpeed: 0
   _jumpForce: 15
   _playState: 0
@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 304064859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.77, y: 0.69, z: 0}
+  m_LocalPosition: {x: -11.88, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -483,8 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDead: 0
-  _rigi: {fileID: 0}
-  arrow_hit: {fileID: 0}
+  _animDie: 0
 --- !u!1 &312182555
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a48d8b3944fb144b76d33fec58f8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 600
+  _speed: 1000
   checkSpeed: 0
   _jumpForce: 15
   _playState: 0
@@ -927,7 +926,7 @@ Transform:
   m_GameObject: {fileID: 427459389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.43, y: 0.82, z: 0}
+  m_LocalPosition: {x: -9.52, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -975,8 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDead: 0
-  _rigi: {fileID: 0}
-  arrow_hit: {fileID: -115083376, guid: 17ba3575ac0692544986975d4ce01263, type: 3}
+  _animDie: 0
 --- !u!1 &468900541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a48d8b3944fb144b76d33fec58f8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 600
+  _speed: 1000
   checkSpeed: 0
   _jumpForce: 15
   _playState: 0
@@ -1696,7 +1694,7 @@ Transform:
   m_GameObject: {fileID: 1389110109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.89, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1744,8 +1742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDead: 0
-  _rigi: {fileID: 0}
-  arrow_hit: {fileID: 0}
+  _animDie: 0
 --- !u!1 &1605733662
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,7 @@ public class attackmove : MonoBehaviour
 {
     [SerializeField] float _speed;
     Rigidbody2D _rigi;
-    SpriteRenderer _sprite;
-    Collider2D _collider;
-    private bool hasHitPlayer = false;
     [SerializeField] Sprite arrow_hit;
-    bool done = false;
     private void OnEnable()
     {
         StartCoroutine(DisableTime());
@@ -18,15 +14,10 @@ public class attackmove : MonoBehaviour
     void Start()
     {
         _rigi = GetComponent<Rigidbody2D>();
-        _sprite = GetComponent<SpriteRenderer>();
-        _collider = GetComponent<Collider2D>();
     }
     void Update()
     {
-        if (!done)
-        {
-            move();
-        }
+        move();
     }
     void move()
     {
@@ -34,26 +25,15 @@ public class attackmove : MonoBehaviour
     }
     IEnumerator DisableTime()
     {
-        yield return new WaitForSeconds(3f);
-        if (!hasHitPlayer)
-        {
-            this.gameObject.SetActive(false);
-        }
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !done)
+        if (other.gameObject.CompareTag("Player"))
         {
-            _sprite.sprite = arrow_hit;
-            other.gameObject.transform.SetParent(this.transform);
-            Rigidbody2D playerRigidbody = other.gameObject.GetComponent<Rigidbody2D>();
-            if (playerRigidbody != null)
-            {
-                playerRigidbody.gravityScale = 0;
-            }
-            hasHitPlayer = true;
-            done = true;
+            this.gameObject.SetActive(false);
         }
     }
 }

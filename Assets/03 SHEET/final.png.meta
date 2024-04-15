@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5987ad26bfeb27143a015c206ec1cf49
+guid: 02278ca94fe186e4983d5f3254fbc33e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow_0
+      name: final_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 29
-        height: 46
+        x: 602
+        y: 379
+        width: 92
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d90b3609ac24ca4d97ed904f74cf000
-      internalID: -775131616
+      spriteID: 578ea89d5fb0a6049b9a9b251b39804a
+      internalID: -1740175208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: final_1
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 98
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd2036f620ee27498ea43c917c5fcaf
+      internalID: -1687390863
       vertices: []
       indices: 
       edges: []
@@ -154,7 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arrow_0: -775131616
+      final_0: -1740175208
+      final_1: -1687390863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

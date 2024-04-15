@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AttackController _attack;
 
     [SerializeField] bool _isGrounded = true;
+    public bool IsGrounded => _isGrounded;
     Rigidbody2D _rigi;
     void Start()
     {

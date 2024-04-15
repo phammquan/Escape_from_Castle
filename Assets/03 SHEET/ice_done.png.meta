@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5987ad26bfeb27143a015c206ec1cf49
+guid: 4a4a74f45c46dd348b946dd7b173b43d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow_0
+      name: ice_done_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 29
-        height: 46
+        x: 546
+        y: 390
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d90b3609ac24ca4d97ed904f74cf000
-      internalID: -775131616
+      spriteID: 9194f511ad29aa7468243ba295b67df9
+      internalID: -272725688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_done_1
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 49
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94b67269e9d2054fb879e5899d60117
+      internalID: 1504832304
       vertices: []
       indices: 
       edges: []
@@ -154,7 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      arrow_0: -775131616
+      ice_done_0: -272725688
+      ice_done_1: 1504832304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
