@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rigi;
     void Start()
     {
+        checkGroud();
         checkSpeed = _speed;
         _rigi = this.GetComponent<Rigidbody2D>();
         _satebase = this.transform.GetChild(0).gameObject.GetComponent<AnimationBase>();
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        checkGroud();
         move();
         UpdateState();
         if (_satebase != null)
@@ -73,22 +75,29 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxisRaw("Vertical") == 1 && _isGrounded)
         {
             _speed /= 2;
-            // _rigi.AddForce(new Vector2(0, _jumpForce));
             _rigi.velocity = new Vector2(_rigi.velocity.x, _jumpForce);
             _isGrounded = false;
         }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    void checkGroud()
     {
-        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Player"))
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector3.down, 2);
+        Debug.DrawRay(this.transform.position, Vector3.down * 2, Color.red);
+        if (hit.collider != null)
         {
-            _isGrounded = true;
-            if (_speed < checkSpeed)
+            if (hit.collider.tag.Equals("Platform") || hit.collider.tag.Equals("Player"))
             {
-                _speed = _speed * 2;
+                _isGrounded = true;
+                if (_speed < checkSpeed)
+                {
+                    _speed = _speed * 2;
+                }
             }
         }
-
+        else
+        {
+            _isGrounded = false;
+        }
     }
     void UpdateAttack()
     {

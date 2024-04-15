@@ -34,6 +34,7 @@ public class AnimationBase : Satebase
 
     public override void _Start()
     {
+
         _animator = this.GetComponent<Animator>();
     }
 

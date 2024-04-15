@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
@@ -8,6 +9,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     public static T Instance => _instance;
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (_instance == null)
         {
             _instance = this.GetComponent<T>();
