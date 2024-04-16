@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool _isGrounded = true;
     public bool IsGrounded => _isGrounded;
     Rigidbody2D _rigi;
+    Collider2D _coli;
+
     void Start()
     {
         checkGroud();
         checkSpeed = _speed;
         _rigi = this.GetComponent<Rigidbody2D>();
+        _coli = this.GetComponent<Collider2D>();
         _satebase = this.transform.GetChild(0).gameObject.GetComponent<AnimationBase>();
         if (_satebase != null)
         {
@@ -78,11 +81,45 @@ public class PlayerController : MonoBehaviour
             _rigi.velocity = new Vector2(_rigi.velocity.x, _jumpForce);
             _isGrounded = false;
         }
+        PhysicsMaterial2D material = _coli.sharedMaterial;
+        if (!_isGrounded)
+        {
+            if (_coli != null)
+            {
+
+                if (material != null)
+                {
+                    material.friction = 0;
+                }
+                else
+                {
+                    material = new PhysicsMaterial2D();
+                    material.friction = 0;
+                    _coli.sharedMaterial = material;
+                }
+            }
+        }
+        else
+        {
+            if (_coli != null)
+            {
+                if (material != null)
+                {
+                    material.friction = 0.4f;
+                }
+                else
+                {
+                    material = new PhysicsMaterial2D();
+                    material.friction = 0.4f;
+                    _coli.sharedMaterial = material;
+                }
+            }
+        }
     }
     void checkGroud()
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector3.down, 2);
-        Debug.DrawRay(this.transform.position, Vector3.down * 2, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector3.down, 1.2f);
+        Debug.DrawRay(this.transform.position, Vector3.down * 1.2f, Color.red);
         if (hit.collider != null)
         {
             if (hit.collider.tag.Equals("Platform") || hit.collider.tag.Equals("Player"))
