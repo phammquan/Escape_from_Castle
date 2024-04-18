@@ -11,7 +11,6 @@ public class GameManager : Singleton<GameManager>
     public int PlayerSelect => _playerSelect;
     void Start()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
         _playerSelect = _player.IndexOf(_player[0]);
     }
     void Update()

@@ -8,6 +8,7 @@ TagManager:
   - Sword
   - Magic
   - Arrow
+  - Trap
   layers:
   - Default
   - TransparentFX

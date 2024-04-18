@@ -2,25 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object_Pooling : MonoBehaviour
+public class Object_Pooling : Singleton<Object_Pooling>
 {
-    private static Object_Pooling _instance;
-    public static Object_Pooling Instance => _instance;
     Dictionary<GameObject, List<GameObject>> _listObject = new Dictionary<GameObject, List<GameObject>>();
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            return;
-        }
-        if (_instance.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-
     public GameObject getPreFabs(GameObject defaultPrefab)
     {
         if (_listObject.ContainsKey(defaultPrefab))
