@@ -20,7 +20,7 @@ public class AnimationBase : Satebase
         for (int i = 0; i <= (int)PlayerState.JUMP; i++)
         {
             string stateName = ((PlayerState)i).ToString();
-            if (playerState == ((PlayerState)i))
+            if (playerState == ((PlayerState)i) && _player.GetComponent<DEAD>()._isDead == false)
             {
                 _animator.SetBool(stateName, true);
             }
@@ -54,6 +54,7 @@ public class AnimationBase : Satebase
         if (_player.GetComponent<DEAD>()._isDead)
         {
             _animator.SetBool("IDLE", false);
+            _animator.SetBool("JUMP", false);
             _animator.SetBool("DIE", true);
 
             if (_player.GetComponent<DEAD>()._AnimDie == AnimDie.DIE)

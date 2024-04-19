@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded => _isGrounded;
     Rigidbody2D _rigi;
     Collider2D _coli;
+    DEAD _isDead;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         checkSpeed = _speed;
         _rigi = this.GetComponent<Rigidbody2D>();
         _coli = this.GetComponent<Collider2D>();
+        _isDead = this.GetComponent<DEAD>();
         _satebase = this.transform.GetChild(0).gameObject.GetComponent<AnimationBase>();
         if (_satebase != null)
         {
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
             _isGrounded = false;
         }
         PhysicsMaterial2D material = _coli.sharedMaterial;
-        if (!_isGrounded)
+        if (!_isGrounded || !_isDead._isDead)
         {
             if (_coli != null)
             {
@@ -106,12 +108,12 @@ public class PlayerController : MonoBehaviour
             {
                 if (material != null)
                 {
-                    material.friction = 0.4f;
+                    material.friction = 1f;
                 }
                 else
                 {
                     material = new PhysicsMaterial2D();
-                    material.friction = 0.4f;
+                    material.friction = 1f;
                     _coli.sharedMaterial = material;
                 }
             }

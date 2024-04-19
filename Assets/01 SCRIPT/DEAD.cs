@@ -37,6 +37,15 @@ public class DEAD : MonoBehaviour
             _animDie = AnimDie.DIE_MAGIC;
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Trap" && !_isDead)
+        {
+            _isDead = true;
+            _animDie = AnimDie.DIE;
+            this.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
     public enum AnimDie
     {
         DIE,
