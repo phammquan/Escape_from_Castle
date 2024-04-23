@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        _coli = this.GetComponent<Collider2D>();
         checkGroud();
         checkSpeed = _speed;
         _rigi = this.GetComponent<Rigidbody2D>();
-        _coli = this.GetComponent<Collider2D>();
         _isDead = this.GetComponent<DEAD>();
         _satebase = this.transform.GetChild(0).gameObject.GetComponent<AnimationBase>();
         if (_satebase != null)
@@ -121,22 +121,30 @@ public class PlayerController : MonoBehaviour
     }
     void checkGroud()
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector3.down, 1.2f);
-        Debug.DrawRay(this.transform.position, Vector3.down * 1.2f, Color.red);
-        if (hit.collider != null)
+
+
+        RaycastHit2D[] rays = new RaycastHit2D[10];
+        _coli.Cast(Vector2.down, rays, 0.2f, true);
+
+        foreach (RaycastHit2D hit in rays)
         {
-            if (hit.collider.tag.Equals("Platform") || hit.collider.tag.Equals("Player"))
+            Debug.DrawRay(hit.point, hit.normal, Color.red);
+            if (hit.collider != null)
             {
-                _isGrounded = true;
-                if (_speed < checkSpeed)
+                if (hit.collider.tag.Equals("Platform") || hit.collider.tag.Equals("Player"))
                 {
-                    _speed = _speed * 2;
+                    _isGrounded = true;
+                    if (_speed < checkSpeed)
+                    {
+                        _speed = _speed * 2;
+                    }
+                    return;
                 }
             }
-        }
-        else
-        {
-            _isGrounded = false;
+            else
+            {
+                _isGrounded = false;
+            }
         }
     }
     void UpdateAttack()
