@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rigi;
     Collider2D _coli;
     DEAD _isDead;
+    PhysicsMaterial2D material;
+
 
     void Start()
     {
         _coli = this.GetComponent<Collider2D>();
+        material = _coli.sharedMaterial;
         checkGroud();
         checkSpeed = _speed;
         _rigi = this.GetComponent<Rigidbody2D>();
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         checkGroud();
+        checkwall();
         move();
         UpdateState();
         if (_satebase != null)
@@ -78,52 +82,51 @@ public class PlayerController : MonoBehaviour
         {
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
+
+        // PhysicsMaterial2D material = _coli.sharedMaterial;
+        // if (!_isGrounded || !_isDead._isDead)
+        // {
+        //     if (_coli != null)
+        //     {
+
+        //         if (material != null)
+        //         {
+        //             material.friction = 0;
+        //         }
+        //         else
+        //         {
+        //             material = new PhysicsMaterial2D();
+        //             material.friction = 0;
+        //             _coli.sharedMaterial = material;
+        //         }
+        //     }
+        // }
+        // else
+        // {
+        //     if (_coli != null)
+        //     {
+        //         if (material != null)
+        //         {
+        //             material.friction = 1f;
+        //         }
+        //         else
+        //         {
+        //             material = new PhysicsMaterial2D();
+        //             material.friction = 1f;
+        //             _coli.sharedMaterial = material;
+        //         }
+        //     }
+        // }
         if (Input.GetAxisRaw("Vertical") == 1 && _isGrounded)
         {
             _speed /= 2;
             _rigi.velocity = new Vector2(_rigi.velocity.x, _jumpForce);
             _isGrounded = false;
         }
-        PhysicsMaterial2D material = _coli.sharedMaterial;
-        if (!_isGrounded || !_isDead._isDead)
-        {
-            if (_coli != null)
-            {
-
-                if (material != null)
-                {
-                    material.friction = 0;
-                }
-                else
-                {
-                    material = new PhysicsMaterial2D();
-                    material.friction = 0;
-                    _coli.sharedMaterial = material;
-                }
-            }
-        }
-        else
-        {
-            if (_coli != null)
-            {
-                if (material != null)
-                {
-                    material.friction = 1f;
-                }
-                else
-                {
-                    material = new PhysicsMaterial2D();
-                    material.friction = 1f;
-                    _coli.sharedMaterial = material;
-                }
-            }
-        }
     }
     void checkGroud()
     {
-
-
-        RaycastHit2D[] rays = new RaycastHit2D[10];
+        RaycastHit2D[] rays = new RaycastHit2D[5];
         _coli.Cast(Vector2.down, rays, 0.2f, true);
 
         foreach (RaycastHit2D hit in rays)
@@ -156,6 +159,53 @@ public class PlayerController : MonoBehaviour
             return;
         }
         _attackstate = AttackState.NOATTACK;
+    }
+    void checkwall()
+    {
+        RaycastHit2D[] hits = new RaycastHit2D[2];
+        hits[0] = Physics2D.Raycast(this.transform.position, Vector2.left, 5f);
+        hits[1] = Physics2D.Raycast(this.transform.position, Vector2.right, 5f);
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag.Equals("Platform"))
+                {
+                    if (_coli != null)
+                    {
+
+                        if (material != null)
+                        {
+                            material.friction = 0;
+                        }
+                        else
+                        {
+                            material = new PhysicsMaterial2D();
+                            material.friction = 0;
+                            _coli.sharedMaterial = material;
+                        }
+                    }
+                    return;
+                }
+            }
+            else
+            {
+                if (_coli != null)
+                {
+
+                    if (material != null)
+                    {
+                        material.friction = 1.0f;
+                    }
+                    else
+                    {
+                        material = new PhysicsMaterial2D();
+                        material.friction = 1.0f;
+                        _coli.sharedMaterial = material;
+                    }
+                }
+            }
+        }
     }
     public enum PlayerState
     {
