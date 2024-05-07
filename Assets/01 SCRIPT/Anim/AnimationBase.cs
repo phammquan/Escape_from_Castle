@@ -53,6 +53,7 @@ public class AnimationBase : Satebase
     {
         if (_player.GetComponent<DEAD>()._isDead)
         {
+            _animator.SetBool("RUN", false);
             _animator.SetBool("IDLE", false);
             _animator.SetBool("JUMP", false);
             _animator.SetBool("DIE", true);

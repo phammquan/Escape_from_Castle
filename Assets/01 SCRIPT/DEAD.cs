@@ -33,7 +33,17 @@ public class DEAD : MonoBehaviour
         else if (other.gameObject.tag == "Magic")
         {
             _isDead = true;
-            this.GetComponent<BoxCollider2D>().size = new Vector2(2.45655f, 2.403677f);
+            if (this.GetComponent<BoxCollider2D>().enabled == false)
+            {
+                this.GetComponent<BoxCollider2D>().enabled = true;
+                this.GetComponent<BoxCollider2D>().size = new Vector2(2.45655f, 2.403677f);
+                this.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
+            else
+            {
+                this.GetComponent<BoxCollider2D>().size = new Vector2(2.45655f, 2.403677f);
+
+            }
             _animDie = AnimDie.DIE_MAGIC;
         }
     }

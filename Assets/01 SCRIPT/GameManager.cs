@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] List<GameObject> _player = new List<GameObject>();
@@ -38,6 +37,10 @@ public class GameManager : Singleton<GameManager>
                 _playerSelect = nextPlayerIndex;
                 ChangePlayer();
             }
+            else
+            {
+                StartCoroutine(ChangeScene());
+            }
         }
 
     }
@@ -57,5 +60,10 @@ public class GameManager : Singleton<GameManager>
                 player.transform.GetChild(1).gameObject.SetActive(false);
             }
         }
+    }
+    IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
