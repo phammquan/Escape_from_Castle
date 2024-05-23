@@ -26,9 +26,13 @@ public class DEAD : MonoBehaviour
         }
         else if (other.gameObject.tag == "Sword")
         {
+            if (!_isDead)
+            {
+                _animDie = AnimDie.DIE;
+                this.GetComponent<BoxCollider2D>().enabled = false;
+            }
             _isDead = true;
-            _animDie = AnimDie.DIE;
-            this.GetComponent<BoxCollider2D>().enabled = false;
+
         }
         else if (other.gameObject.tag == "Magic")
         {
@@ -36,12 +40,12 @@ public class DEAD : MonoBehaviour
             if (this.GetComponent<BoxCollider2D>().enabled == false)
             {
                 this.GetComponent<BoxCollider2D>().enabled = true;
-                this.GetComponent<BoxCollider2D>().size = new Vector2(2.45655f, 2.403677f);
+                this.GetComponent<BoxCollider2D>().size = new Vector2(1.9f, 2.403677f);
                 this.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
-                this.GetComponent<BoxCollider2D>().size = new Vector2(2.45655f, 2.403677f);
+                this.GetComponent<BoxCollider2D>().size = new Vector2(1.9f, 2.403677f);
 
             }
             _animDie = AnimDie.DIE_MAGIC;
