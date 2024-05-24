@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player:
   - {fileID: 8795106440429495884, guid: 1a07a14069ae4be43b6be8ca10628f7f, type: 3}
-  - {fileID: 7538603534667988228, guid: ae01cc07494a67541aff421141286aed, type: 3}
+  - {fileID: 2967216392597686549, guid: ae01cc07494a67541aff421141286aed, type: 3}
   - {fileID: 1512205518967969693, guid: a7061a89e421a1840bd7244ef24060dd, type: 3}
   _playerSelect: 0

@@ -11,6 +11,8 @@ public class UI_Manager : Singleton<UI_Manager>
 
     [SerializeField] Button[] level;
     [SerializeField] GameObject levelselect;
+    [SerializeField] Canvas Button;
+
     void Start()
     {
         playButton.onClick.AddListener(() =>
@@ -29,14 +31,6 @@ public class UI_Manager : Singleton<UI_Manager>
         {
             SceneManager.LoadScene(2);
         });
-
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SceneManager.LoadScene(2);
-        }
     }
 
 }
