@@ -82,41 +82,6 @@ public class PlayerController : MonoBehaviour
         {
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        // PhysicsMaterial2D material = _coli.sharedMaterial;
-        // if (!_isGrounded || !_isDead._isDead)
-        // {
-        //     if (_coli != null)
-        //     {
-
-        //         if (material != null)
-        //         {
-        //             material.friction = 0;
-        //         }
-        //         else
-        //         {
-        //             material = new PhysicsMaterial2D();
-        //             material.friction = 0;
-        //             _coli.sharedMaterial = material;
-        //         }
-        //     }
-        // }
-        // else
-        // {
-        //     if (_coli != null)
-        //     {
-        //         if (material != null)
-        //         {
-        //             material.friction = 1f;
-        //         }
-        //         else
-        //         {
-        //             material = new PhysicsMaterial2D();
-        //             material.friction = 1f;
-        //             _coli.sharedMaterial = material;
-        //         }
-        //     }
-        // }
         if (Input.GetAxisRaw("Vertical") == 1 && _isGrounded)
         {
             _speed /= 2;

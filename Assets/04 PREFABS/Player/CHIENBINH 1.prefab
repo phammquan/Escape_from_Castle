@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4149534331455214252
 Transform:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 700
   checkSpeed: 0
-  _jumpForce: 15
+  _jumpForce: 16
   _playState: 0
   _attackstate: 0
   _attack: {fileID: 2389289128504000542}

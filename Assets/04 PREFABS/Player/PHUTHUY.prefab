@@ -97,14 +97,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512205518967969693}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a48d8b3944fb144b76d33fec58f8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 700
   checkSpeed: 0
-  _jumpForce: 15
+  _jumpForce: 16
   _playState: 0
   _attackstate: 0
   _attack: {fileID: 6428705647930737265}
