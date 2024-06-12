@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa6d51f3c60a66947ab632633f436c9b
+guid: bc39387217623244a81799a09b209594
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Introl_Trap_0
+      name: Introl_Trap 1_0
       rect:
         serializedVersion: 2
-        x: 321
-        y: 0
-        width: 160
-        height: 140
+        x: 499
+        y: 321
+        width: 141
+        height: 161
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c7a29d26291054e8f807191b25fb62
-      internalID: -177574985
+      spriteID: 8cbc7e4f7adba644b8b4226ced12c25f
+      internalID: 1759048822
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Introl_Trap_0: -177574985
+      Introl_Trap 1_0: 1759048822
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

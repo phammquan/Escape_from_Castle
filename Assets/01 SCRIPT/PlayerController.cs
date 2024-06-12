@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetAxisRaw("Vertical") == 1 && _isGrounded)
         {
-            _speed /= 2;
+            _speed /= 1.95f;
             _rigi.velocity = new Vector2(_rigi.velocity.x, _jumpForce);
             _isGrounded = false;
         }

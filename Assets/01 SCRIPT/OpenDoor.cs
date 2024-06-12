@@ -8,9 +8,11 @@ public class OpenDoor : MonoBehaviour
     public int cnt = 0;
     public int check;
     [SerializeField] List<GameObject> _switch = new List<GameObject>();
+    Animator _anim;
 
     void Start()
     {
+        _anim = this.GetComponent<Animator>();
         check = _switch.Count;
     }
 
@@ -27,7 +29,8 @@ public class OpenDoor : MonoBehaviour
         }
         if (cnt == check)
         {
-            gameObject.SetActive(false);
+            _anim.SetBool("Open", true);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

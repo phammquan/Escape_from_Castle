@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa6d51f3c60a66947ab632633f436c9b
+guid: 2b5f1a31528b9614388ab61585237e4e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,22 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Introl_Trap_0
+      name: Screenshot 2024-06-12 213013_0
       rect:
         serializedVersion: 2
-        x: 321
-        y: 0
-        width: 160
-        height: 140
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 46
+        y: 92
+        width: 104
+        height: 225
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c7a29d26291054e8f807191b25fb62
-      internalID: -177574985
+      spriteID: ebc3813278eb8eb47bc5ac075cf9172b
+      internalID: 1300167191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2024-06-12 213013_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 151
+        width: 104
+        height: 166
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57f61246b733014294325ffa47241b7
+      internalID: -1005368182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2024-06-12 213013_2
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 237
+        width: 104
+        height: 80
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7ade4c15704094cb44371f641c1c92
+      internalID: -1861732608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Screenshot 2024-06-12 213013_3
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 279
+        width: 104
+        height: 38
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e54c95540947a44d8eaa3b4fecf73b0
+      internalID: 1553431466
       vertices: []
       indices: 
       edges: []
@@ -154,7 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Introl_Trap_0: -177574985
+      Screenshot 2024-06-12 213013_0: 1300167191
+      Screenshot 2024-06-12 213013_1: -1005368182
+      Screenshot 2024-06-12 213013_2: -1861732608
+      Screenshot 2024-06-12 213013_3: 1553431466
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
