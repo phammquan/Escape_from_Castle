@@ -53,11 +53,13 @@ public class GameManager : Singleton<GameManager>
             {
                 player.GetComponent<PlayerController>().enabled = true;
                 player.transform.GetChild(1).gameObject.SetActive(true);
+                player.transform.GetChild(2).gameObject.SetActive(true);
             }
             else
             {
                 player.GetComponent<PlayerController>().enabled = false;
                 player.transform.GetChild(1).gameObject.SetActive(false);
+                player.transform.GetChild(2).gameObject.SetActive(false);
             }
         }
     }
