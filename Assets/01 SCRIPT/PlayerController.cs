@@ -128,30 +128,29 @@ public class PlayerController : MonoBehaviour
     void checkwall()
     {
         RaycastHit2D[] hits = new RaycastHit2D[2];
-        hits[0] = Physics2D.Raycast(this.transform.position, Vector2.left, 5f);
-        hits[1] = Physics2D.Raycast(this.transform.position, Vector2.right, 5f);
+        hits[0] = Physics2D.Raycast(this.transform.position, Vector2.left, 3f);
+        hits[1] = Physics2D.Raycast(this.transform.position, Vector2.right, 3f);
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.tag.Equals("Platform"))
             {
-                if (hit.collider.tag.Equals("Platform"))
-                {
-                    if (_coli != null)
-                    {
 
-                        if (material != null)
-                        {
-                            material.friction = 0;
-                        }
-                        else
-                        {
-                            material = new PhysicsMaterial2D();
-                            material.friction = 0;
-                            _coli.sharedMaterial = material;
-                        }
+                if (_coli != null)
+                {
+
+                    if (material != null)
+                    {
+                        material.friction = 0;
                     }
-                    return;
+                    else
+                    {
+                        material = new PhysicsMaterial2D();
+                        material.friction = 0;
+                        _coli.sharedMaterial = material;
+                    }
                 }
+                return;
+
             }
             else
             {
