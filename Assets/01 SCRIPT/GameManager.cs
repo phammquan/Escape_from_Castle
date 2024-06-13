@@ -8,10 +8,11 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> Player => _player;
     [SerializeField] int _playerSelect;
     public int PlayerSelect => _playerSelect;
-    void Start()
+    private void Start()
     {
         _playerSelect = _player.IndexOf(_player[0]);
     }
+
     void Update()
     {
         ChangePlayer();
@@ -63,6 +64,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
     }
+
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(1);

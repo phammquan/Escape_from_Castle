@@ -309,7 +309,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2967216392597686549}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27a48d8b3944fb144b76d33fec58f8f7, type: 3}
   m_Name: 
@@ -362,6 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isDead: 0
   _animDie: 0
+  _vfx_blood: {fileID: 3364817178490279934, guid: ea2eaa01d5bf62847a672c9500798262, type: 3}
+  _vfx_blood_magic: {fileID: 5423472200679864988, guid: 1cb28e2532481f54cb9521c893f5b0f1, type: 3}
 --- !u!1 &7275256573027922013
 GameObject:
   m_ObjectHideFlags: 0

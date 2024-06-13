@@ -9,6 +9,8 @@ public class DEAD : MonoBehaviour
     public Rigidbody2D _Rigi => _rigi;
     [SerializeField] AnimDie _animDie;
     public AnimDie _AnimDie => _animDie;
+    [SerializeField] GameObject _vfx_blood;
+    [SerializeField] GameObject _vfx_blood_magic;
 
     void Start()
     {
@@ -17,24 +19,70 @@ public class DEAD : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Arrow" && !_isDead)
-        {
-            _animDie = AnimDie.DIE_ARROW;
-            _isDead = true;
-            this.GetComponent<BoxCollider2D>().isTrigger = true;
-            _rigi.gravityScale = 0;
-        }
-        else if (other.gameObject.tag == "Sword")
+        if (other.gameObject.tag == "Arrow")
         {
             if (!_isDead)
             {
-                _animDie = AnimDie.DIE;
-                this.GetComponent<BoxCollider2D>().enabled = false;
+                GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
+                bl.transform.position = this.transform.position;
+                bl.SetActive(true);
+                _animDie = AnimDie.DIE_ARROW;
+                _isDead = true;
+                this.GetComponent<BoxCollider2D>().isTrigger = true;
+                _rigi.gravityScale = 0;
             }
-            _isDead = true;
+            else
+            {
+                if (_animDie == AnimDie.DIE_MAGIC)
+                {
+                    GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood_magic);
+                    bl.transform.position = this.transform.position;
+                    bl.SetActive(true);
+                }
+                else
+                {
+                    GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
+                    bl.transform.position = this.transform.position;
+                    bl.SetActive(true);
+                }
+            }
+        }
+        else if (other.gameObject.tag == "Sword")
+        {
+            if (_animDie == AnimDie.DIE_MAGIC)
+            {
+                GameObject bl0 = Object_Pooling.Instance.getPreFabs(_vfx_blood_magic);
+                bl0.transform.position = this.transform.position;
+                bl0.SetActive(true);
+            }
+            else
+            {
+                GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
+                bl.transform.position = this.transform.position;
+                bl.SetActive(true);
+                if (!_isDead)
+                {
+                    _animDie = AnimDie.DIE;
+                    this.GetComponent<BoxCollider2D>().enabled = false;
+                }
+                _isDead = true;
+
+            }
 
         }
-        else if (other.gameObject.tag == "Magic")
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Trap" && !_isDead)
+        {
+            GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
+            bl.transform.position = this.transform.position;
+            bl.SetActive(true);
+            _isDead = true;
+            _animDie = AnimDie.DIE;
+            this.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (other.gameObject.tag == "Magic")
         {
             _rigi.gravityScale = 3;
             _animDie = AnimDie.DIE_MAGIC;
@@ -55,15 +103,6 @@ public class DEAD : MonoBehaviour
 
             }
 
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Trap" && !_isDead)
-        {
-            _isDead = true;
-            _animDie = AnimDie.DIE;
-            this.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
     public enum AnimDie
