@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (_satebase != null)
         {
             _satebase.UpdateAnimation(_playState);
+
         }
         UpdateAttack();
         _satebase.UpdateAttackAnim(_attackstate);

@@ -19,9 +19,9 @@ public class DEAD : MonoBehaviour
     {
         if (other.gameObject.tag == "Arrow" && !_isDead)
         {
-            _isDead = true;
-            this.GetComponent<BoxCollider2D>().enabled = false;
             _animDie = AnimDie.DIE_ARROW;
+            _isDead = true;
+            this.GetComponent<BoxCollider2D>().isTrigger = true;
             _rigi.gravityScale = 0;
         }
         else if (other.gameObject.tag == "Sword")
@@ -36,19 +36,25 @@ public class DEAD : MonoBehaviour
         }
         else if (other.gameObject.tag == "Magic")
         {
+            _rigi.gravityScale = 3;
+            _animDie = AnimDie.DIE_MAGIC;
             _isDead = true;
-            if (this.GetComponent<BoxCollider2D>().enabled == false)
+            if (this.GetComponent<BoxCollider2D>().isTrigger == true)
             {
-                this.GetComponent<BoxCollider2D>().enabled = true;
-                this.GetComponent<BoxCollider2D>().size = new Vector2(1.9f, 2.403677f);
+                if (this.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Static)
+                {
+                    this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
+                this.GetComponent<BoxCollider2D>().isTrigger = false;
+                this.GetComponent<BoxCollider2D>().size = new Vector2(1.82f, 2.403677f);
                 this.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
             else
             {
-                this.GetComponent<BoxCollider2D>().size = new Vector2(1.9f, 2.403677f);
+                this.GetComponent<BoxCollider2D>().size = new Vector2(1.82f, 2.403677f);
 
             }
-            _animDie = AnimDie.DIE_MAGIC;
+
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

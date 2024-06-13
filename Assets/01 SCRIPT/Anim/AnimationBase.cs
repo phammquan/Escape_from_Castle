@@ -10,6 +10,7 @@ public class AnimationBase : Satebase
     Animator _animator;
     [SerializeField] PlayerController _player;
     bool arrow = false;
+    bool done = false;
 
     void Update()
     {
@@ -44,9 +45,14 @@ public class AnimationBase : Satebase
     }
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (arrow && other.gameObject.tag == "Platform")
+        if (arrow && other.gameObject.tag == "Platform" && done == false)
         {
+            done = true;
             this.transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        }
+        else
+        {
+            this.transform.parent.gameObject.GetComponent<Rigidbody2D>().gravityScale = 3;
         }
     }
     public void DeadAnim()
@@ -69,20 +75,23 @@ public class AnimationBase : Satebase
             }
             if (_player.GetComponent<DEAD>()._AnimDie == AnimDie.DIE_ARROW)
             {
-                arrow = true;
                 this.GetComponent<BoxCollider2D>().enabled = true;
                 this.GetComponent<BoxCollider2D>().size = this.transform.parent.gameObject.GetComponent<BoxCollider2D>().size * 1.8f;
-                if (GameManager.Instance.Player[1].transform.localScale.x == _player.transform.localScale.x)
+                if (!arrow)
                 {
-                    _animator.SetFloat("DEAD", 0f);
-                    this.GetComponent<AnimationBase>().enabled = false;
+                    if (GameManager.Instance.Player[1].transform.localScale.x == _player.transform.localScale.x)
+                    {
+                        _animator.SetFloat("DEAD", 0f);
+                    }
+                    else
+                    {
+                        _player.transform.localScale = new Vector3(GameManager.Instance.Player[1].transform.localScale.x, 1, 1);
+                        _animator.SetFloat("DEAD", 0f);
+                    }
+
                 }
-                else
-                {
-                    _player.transform.localScale = new Vector3(GameManager.Instance.Player[1].transform.localScale.x, 1, 1);
-                    _animator.SetFloat("DEAD", 0f);
-                    this.GetComponent<AnimationBase>().enabled = false;
-                }
+                arrow = true;
+
             }
 
             return;
