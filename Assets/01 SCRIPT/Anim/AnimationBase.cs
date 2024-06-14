@@ -48,7 +48,8 @@ public class AnimationBase : Satebase
         if (arrow && other.gameObject.tag == "Platform" && done == false)
         {
             done = true;
-            this.transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            // this.transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            StartCoroutine(OnStatic());
         }
         else
         {
@@ -96,6 +97,11 @@ public class AnimationBase : Satebase
 
             return;
         }
+    }
+    IEnumerator OnStatic()
+    {
+        yield return new WaitForSeconds(1f);
+        this.transform.parent.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
 }

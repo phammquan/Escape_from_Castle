@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
-  arrow_hit: {fileID: -775131616, guid: 5987ad26bfeb27143a015c206ec1cf49, type: 3}
+  _vfx_hit: {fileID: 8071318963146602579, guid: 48ae62c850019a34091e032ecd82158e, type: 3}
 --- !u!68 &2267756947862143337
 EdgeCollider2D:
   m_ObjectHideFlags: 0

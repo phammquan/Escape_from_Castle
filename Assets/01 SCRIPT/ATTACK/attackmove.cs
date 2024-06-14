@@ -6,7 +6,8 @@ public class attackmove : MonoBehaviour
 {
     [SerializeField] float _speed;
     Rigidbody2D _rigi;
-    [SerializeField] Sprite arrow_hit;
+    [SerializeField] GameObject _vfx_hit;
+    Quaternion dir;
     private void OnEnable()
     {
         StartCoroutine(DisableTime());
@@ -17,6 +18,8 @@ public class attackmove : MonoBehaviour
     }
     void Update()
     {
+        dir = this.transform.rotation;
+
         move();
     }
     void move()
@@ -33,6 +36,15 @@ public class attackmove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            this.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_hit);
+            bl.transform.position = this.transform.position;
+
+            bl.transform.localScale = new Vector3(dir.z < 0 ? 1 : -1, 1, 1);
+            bl.SetActive(true);
             this.gameObject.SetActive(false);
         }
     }

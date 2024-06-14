@@ -39,11 +39,21 @@ public class DEAD : MonoBehaviour
                     bl.transform.position = this.transform.position;
                     bl.SetActive(true);
                 }
+                if (_animDie == AnimDie.DIE)
+                {
+                    GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
+                    bl.transform.position = this.transform.position;
+                    bl.SetActive(true);
+                    _animDie = AnimDie.DIE_ARROW;
+                    this.GetComponent<BoxCollider2D>().isTrigger = true;
+                    _rigi.gravityScale = 0;
+                }
                 else
                 {
                     GameObject bl = Object_Pooling.Instance.getPreFabs(_vfx_blood);
                     bl.transform.position = this.transform.position;
                     bl.SetActive(true);
+                    _rigi.gravityScale = 0;
                 }
             }
         }

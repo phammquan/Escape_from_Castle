@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Life_Time_VFX : MonoBehaviour
 {
-    float _lifeTime = 1;
+    float _lifeTime = 0.6f;
 
     private void OnEnable()
     {
