@@ -516,6 +516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sword: {fileID: 907463739067650946, guid: daac5439b633d954abac7495b996d0c7, type: 3}
   _arrow: {fileID: 2194798790003531910, guid: 2aa1a0d26c224494fb51e1ace498019b, type: 3}
-  _magic: {fileID: 51599532220219712, guid: 762197c4073295f418dd4d8f83f2ac3a, type: 3}
+  _magic: {fileID: 2643531930614149111, guid: 4ae501079bcefd349a00bc2c9fd4498a, type: 3}
   _playerController: {fileID: 8274044726959594494}
   _timeAttack: 0

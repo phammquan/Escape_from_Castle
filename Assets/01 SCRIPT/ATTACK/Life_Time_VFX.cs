@@ -8,10 +8,10 @@ public class Life_Time_VFX : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(DisableExplo());
+        StartCoroutine(DisableVFX());
     }
 
-    IEnumerator DisableExplo()
+    IEnumerator DisableVFX()
     {
         yield return new WaitForSeconds(_lifeTime);
         this.gameObject.SetActive(false);
