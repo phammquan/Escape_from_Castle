@@ -23,14 +23,22 @@ public class UI_Manager : Singleton<UI_Manager>
         {
             levelselect.SetActive(false);
         });
-        level[0].onClick.AddListener(() =>
+        // level[0].onClick.AddListener(() =>
+        // {
+        //     SceneManager.LoadScene(1);
+        // });
+        // level[1].onClick.AddListener(() =>
+        // {
+        //     SceneManager.LoadScene(2);
+        // });
+        for (int i = 0; i < level.Length; i++)
         {
-            SceneManager.LoadScene(1);
-        });
-        level[1].onClick.AddListener(() =>
-        {
-            SceneManager.LoadScene(2);
-        });
+            int index = i;
+            level[i].onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene(index + 1);
+            });
+        }
     }
 
 }
