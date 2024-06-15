@@ -72,6 +72,7 @@ public class AnimationBase : Satebase
             }
             if (_player.GetComponent<DEAD>()._AnimDie == AnimDie.DIE_MAGIC)
             {
+                this.GetComponent<BoxCollider2D>().enabled = false;
                 _animator.SetFloat("DEAD", 1f);
             }
             if (_player.GetComponent<DEAD>()._AnimDie == AnimDie.DIE_ARROW)

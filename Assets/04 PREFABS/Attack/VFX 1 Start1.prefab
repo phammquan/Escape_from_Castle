@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfx_ice1: {fileID: 4003793727760171989, guid: 52108b8d131132c458a744a0c79bbbfa, type: 3}
   vfx_ice2: {fileID: 9096874671581008715, guid: 5b22a86dcb4d2b1408049642f0a8d3b0, type: 3}
-  _speed: 10
+  _speed: 15
 --- !u!61 &3598345438350896811
 BoxCollider2D:
   m_ObjectHideFlags: 0

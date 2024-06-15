@@ -94,6 +94,7 @@ public class DEAD : MonoBehaviour
         }
         if (other.gameObject.tag == "Magic")
         {
+            this.GetComponent<BoxCollider2D>().enabled = true;
             _rigi.gravityScale = 3;
             _animDie = AnimDie.DIE_MAGIC;
             _isDead = true;
